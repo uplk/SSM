@@ -1,11 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
 
 <head>
     <meta charset="utf-8" />
     <title>登录</title>
-    <link rel="stylesheet" href="css/login.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/login.css" />
 </head>
 
 <body>
@@ -22,10 +23,28 @@
                 </div>
                 <div id="all">
                     <ul id="option">
-                        <li class="login_right">账号登录</li>
                         <li class="active login_left">密码登录</li>
+                        <li class="login_right">账号登录</li>
+
                     </ul>
                     <ul id="card">
+                        <li class="active">
+                            <!--输入框-->
+                            <div class="login_bot_count">
+                                <img src="img/tubiao-07.png" alt="" />
+                                <input type="" name="uname" id="uname" placeholder="请输入账号" />
+                            </div>
+                            <div class="login_bot_count">
+                                <img src="img/tubiao-06.png" alt="" />
+                                <input type="" name="upassword" id="upassword" placeholder="请输入密码"  />
+                            </div>
+                            <div class="login_bot">
+                                <a>忘记密码?</a>
+                                <p><input type="checkbox" name="vehicle" value="Bike" />记住密码</p>
+                            </div>
+                            <!--登录按钮-->
+                            <button class="login_button" onclick="login()">登录</button>
+                        </li>
                         <li class="login_account">
                             <!--输入框-->
                             <div class="login_account_count">
@@ -47,24 +66,6 @@
                             <!--登录按钮-->
                             <button class="login_account_button">登录</button>
                         </li>
-                        <li class="active">
-                            <!--输入框-->
-                            <div class="login_bot_count">
-                                <img src="img/tubiao-07.png" alt="" />
-                                <input type="" name="" id="" placeholder="请输入账号"id="one" />
-                            </div>
-                            <div class="login_bot_count">
-                                <img src="img/tubiao-06.png" alt="" />
-                                <input type="" name="" id="" placeholder="请输入密码"id="one"  />
-                            </div>
-                            <div class="login_bot">
-                                <a>忘记密码?</a>
-                                <p><input type="checkbox" name="vehicle" value="Bike" />记住密码</p>
-                            </div>
-                            <!--登录按钮-->
-                            <button class="login_button">登录</button>
-                        </li>
-
                     </ul>
                 </div>
 
@@ -89,7 +90,8 @@
 </div>
 
 <script src="https://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
-<script type="text/javascript" src="js/login.js" ></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/login.js" ></script>
+
 </body>
 
 </html>

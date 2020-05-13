@@ -37,28 +37,36 @@
     <link rel=stylesheet href=https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css>
     <link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css>
     <link href="css/multiple-select.css" rel="stylesheet">
+    <!-- major add 弹窗-->
+    <link rel="stylesheet" type="text/css" href="css/index.css">
 
 </head>
-<body class="hold-transition sidebar-mini">
+<body class="hold-transition sidebar-mini" onload="markdown()">
 <!-- Site wrapper -->
 <div class="wrapper">
     <jsp:include page="aside.jsp"/>
     <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
+    <% String major_content = request.getParameter("major_content");%>
+
+    <div class="form-group content-wrapper">
         <form id="program-add">
             <!-- Main content -->
-            <div id="layout">
-                    <div id="markDown-program">
-                        <textarea style="display: none;" name="major_content"></textarea>
-                    </div>
+            <label for="test" class="col-sm-1 control-label">文章</label>
+            <div class="col-md-2 col-lg-4" id="markDown-program">
+<%--                <textarea style="display: none;" name="major_content" id="test">--%>
+<%--                   </textarea>--%>
+                <input id="test" class="form-control" name="major_content"/>
             </div>
-
-            <select id="select-major" class="major" >
-<%--                    <option value="wl"  size='16 '>初中物理</option>--%>
-            </select>
-
-            <button id="submit" type="button" class="btn btn-block btn-outline-primary">Submit</button>
-<%--            <input id="submit" type="submit" value="Submit">--%>
+            <label for="select-major" class="col-sm-1 control-label">分类</label>
+            <div class="col-md-2 col-lg-4">
+                <select id="select-major" class="form-control" name="major_sort">
+                    <%--                    <option value="wl"  size='16 '>初中物理</option>--%>
+                </select>
+            </div>
+            <label for="submit" class="col-sm-1 control-label">提交</label>
+            <div class="col-md-2 col-lg-4">
+                <button id="submit" type="button" class="btn btn-block btn-outline-primary form-control">Submit</button>
+            </div>
         </form>
 
         <!-- /.content -->
@@ -90,23 +98,24 @@
     <!-- select -->
     <script type="text/javascript" src="../js/select-mania.js"></script>
 
+
     <script type="text/javascript">
         // $('.major').selectMania({
         //     size: 'large',
         //     themes: ['darkblue']
         // });
-        var testEditor;
+        <%--var testEditor;--%>
 
-        $(function() {
-            testEditor = editormd("markDown-program",{
-                width   : "100%",
-                height  : 640,
-                syncScrolling : "single",
-                path    : "${pageContext.request.contextPath}/lib/",
-                saveHTMLToTextarea: true
+        <%--$(function() {--%>
+        <%--    testEditor = editormd("markDown-program",{--%>
+        <%--        width   : "90%",--%>
+        <%--        height  : 640,--%>
+        <%--        syncScrolling : "single",--%>
+        <%--        path    : "${pageContext.request.contextPath}/lib/",--%>
+        <%--        saveHTMLToTextarea: true--%>
 
-            });
-        });
+        <%--    });--%>
+        <%--});--%>
 
        $(function () {
             $("#submit").on("click", function(){
@@ -124,6 +133,7 @@
                 })
            })
        })
+
         $(document).ready(function(){
             $.ajax({
                 cache:false,
@@ -136,10 +146,10 @@
                     var htmlTxt="";
                     for(var i=0;i<data.length;i++){
                         // alert(data[i].major_sort)
-                        htmlTxt+="<option value=";
-                        htmlTxt+=data[i].major_sort + "+style=\"width: 100px;\" >";
-                        htmlTxt+=data[i].major_sort;
-                        htmlTxt+="</option>";
+                        htmlTxt += "<option value=";
+                        htmlTxt += data[i].major_sort+">";
+                        htmlTxt += data[i].major_sort;
+                        htmlTxt += "</option>";
                     }
                     $("#select-major").html(htmlTxt);
                     // alert("Success")
@@ -150,6 +160,9 @@
                 }
             });
         });
+       function markdown(){
+           window.open ('markdown-add.jsp','','status=no,scrollbars=no,top=125,left=202,width=1000,height=500');
+       }
 
     </script>
 

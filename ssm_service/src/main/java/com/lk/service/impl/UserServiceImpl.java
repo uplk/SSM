@@ -21,4 +21,14 @@ public class UserServiceImpl implements IUserService {
     public List<User> findAll() throws Exception {
         return userDao.findAll();
     }
+
+    @Override
+    public List<User> findUname(String uname) throws Exception {
+        return userDao.findUname(uname);
+    }
+
+    @Override
+    public void register(User user) throws Exception {
+        userDao.register(user);
+    }
 }

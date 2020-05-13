@@ -11,4 +11,6 @@ public interface IMajorService {
     Major findOne(String title) throws  Exception;
 
     List<Major> findMajorSort();
+
+    String findSortID(String name) throws  Exception;
 }

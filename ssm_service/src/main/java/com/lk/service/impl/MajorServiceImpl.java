@@ -36,4 +36,9 @@ public class MajorServiceImpl implements IMajorService {
     public List<Major> findMajorSort() {
         return majorDao.findMajorSort();
     }
+
+    @Override
+    public String findSortID(String name) throws Exception {
+        return majorDao.findSortID(name);
+    }
 }

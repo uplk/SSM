@@ -61,7 +61,7 @@
                                 <ul class="user-menu nav justify-content-center justify-content-md-start">
                                     <li class="nav-item"><button class="search-btn" id="js-search-btn"><span class="icon-left icon-xs flaticon-magnifying-glass-browser"></span>Search</button></li>
                                     <li class="nav-item"><a href="#"><span class="icon-left icon-xs flaticon-closed-envelope-email"></span>Subscribe</a></li>
-                                    <li class="nav-item"><a href="/user-login.jsp"><span class="icon-left icon-xs flaticon-messenger-user-avatar"></span>Login</a></li>
+                                    <li class="nav-item"><a href="${pageContext.request.contextPath}/user-login.jsp"><span class="icon-left icon-xs flaticon-messenger-user-avatar"></span>Login</a></li>
                                     <li class="nav-item"><a href="#" class="nav-item"><i class="mdi mdi-qqchat"></i></a></li>
                                     <li class="nav-item"><a href="#" class="nav-item"><i class="mdi mdi-wechat"></i></a></li>
                                 </ul>
@@ -84,10 +84,10 @@
                 <div class="main-navigation absolute">
                     <ul class="nav justify-content-between">
                         <li class="nav-item menu-item-has-children">
-                            <a href="index.html" class="nav-link">Home</a>
+                            <a href="index.jsp" class="nav-link">Home</a>
                         </li>
                         <li class="nav-item menu-item-has-children">
-                            <a href="index.html" class="nav-link">Programmer</a>
+                            <a href="program.jsp" class="nav-link">Programmer</a>
                         </li>
                         <li class="nav-item">
                             <a href="category-post.jsp" class="nav-link">Picture</a>

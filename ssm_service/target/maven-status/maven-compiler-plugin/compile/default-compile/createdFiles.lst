@@ -1,4 +1,4 @@
 com\lk\service\impl\UserServiceImpl.class
-com\lk\service\impl\ProductServiceImpl.class
 com\lk\service\IUserService.class
-com\lk\service\IProductService.class
+com\lk\service\IMajorService.class
+com\lk\service\impl\MajorServiceImpl.class

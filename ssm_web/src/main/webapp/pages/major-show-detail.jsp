@@ -47,9 +47,9 @@
                 </div>
             </div>
             <div class="card-body p-0" id="markDown-major">
-               <textarea style="display: none;" name="major_content">
-                   ${findMajor.major_content}
-               </textarea>
+                 <textarea style="display: none;" name="major_content">
+                       ${findMajor.major_content}
+                  </textarea>
             </div>
             <!-- /.card-body -->
         </div>
@@ -81,14 +81,19 @@
 <script src="../lib/jquery.flowchart.min.js"></script>
 <script src="./editormd.js"></script>
 <script type="text/javascript">
-    <!--markdown-->
-    editormd.markdownToHTML("markDown-major", {
-        htmlDecode      : "style,script,iframe",
-        emoji           : true,
-        taskList        : true,
-        tex             : true,  // 默认不解析
-        flowChart       : true,  // 默认不解析
-        sequenceDiagram : true  // 默认不解析
+    editormd.markdownToHTML("markDown-major");
+    // <!--markdown-->
+    // editormd.markdownToHTML("markDown-major");
+    var testEditor;
+    $(function(){
+        testEditor= editormd.markdownToHTML("markDown-major", {
+            htmlDecode      : "style,script,iframe",
+            emoji           : true,
+            taskList        : true,
+            tex             : true,  // 默认不解析
+            flowChart       : true,  // 默认不解析
+            sequenceDiagram : true  // 默认不解析
+        });
     });
 
 </script>

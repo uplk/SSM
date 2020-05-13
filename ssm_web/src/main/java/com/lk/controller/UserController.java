@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
+import java.util.UUID;
 
 @Controller
 @RequestMapping("/user")
@@ -27,4 +28,25 @@ public class UserController {
 
         return mv;
     }
+
+    @RequestMapping(value="/register.do")
+    public ModelAndView register(User user) throws Exception{
+        ModelAndView mv = new ModelAndView();
+        user.setUid(UUID.randomUUID().toString().replace("-",""));
+        userService.register(user);
+        mv.setViewName("user-login");
+        return mv;
+    }
+
+    @RequestMapping(value="/findUname.do")
+    public String register(String uname) throws Exception{
+        List<User> userList = userService.findUname(uname);
+        String msg = null;
+        if(userList.size() > 1){
+            msg = "用户已存在";
+        }
+        return msg;
+    }
+
+
 }
