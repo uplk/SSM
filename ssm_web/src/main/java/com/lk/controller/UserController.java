@@ -142,23 +142,31 @@ public class UserController {
 
     @RequestMapping(value="/pwdLogin.do")
     @ResponseBody
-    public void pwdLogin(HttpServletRequest request, @RequestParam("uname") String uname, @RequestParam("upassword") String upassword) throws Exception{
-//        var uanme =$("#uanme").val();
-//        var upassword =$("#upassword").val();
-//        $.ajax({
-//                type:"post",
-//                url:"${pageContext.request.contextPath}/user/pwdLogin.do",
-//                data:{uanme :uanme, upassword: upassword},
+    public String pwdLogin(HttpServletRequest request, @RequestParam("uname") String uname, @RequestParam("upassword") String upassword) throws Exception{
         HttpSession session = request.getSession(true);
         String json = "";
         User user = new User();
         user.setUname(uname);
         user.setUpassword(upassword);
         int row  =userService.pwdLogin(user);
-        if(row == 1)
+        if(row == 1){
             session.setAttribute("uname", uname);
+            return "SUCCESS";
+        }
+        return "ERROR";
     }
 
+
+    @RequestMapping(value="/findUser.do")
+    @ResponseBody
+    public ModelAndView findUser(@RequestParam("uname") String uname) throws Exception{
+        ModelAndView mv = new ModelAndView();
+        User user = userService.findUser(uname);
+
+        mv.addObject("user", user);
+        mv.setViewName("user-detail");
+        return mv;
+    }
     @RequestMapping(value="/checkUname.do")
     @ResponseBody
     public String  checkUname(@RequestParam("uname") String uname) throws Exception{

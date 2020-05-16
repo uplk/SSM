@@ -126,13 +126,11 @@
         $("#pwd_login").on("click", function(){
             var uname =$("#uname").val();
             var upassword =$("#upassword").val();
-            alert(uname)
-            alert(upassword)
             $.ajax({
                 type:"post",
                 url:"${pageContext.request.contextPath}/user/pwdLogin.do",
-                data:{uanme :uname, upassword: upassword},
-                dataType : "json",
+                data:{uname :uname, upassword: upassword},
+                dataType : "text",
                 success:function(data) {
                     window.location.href="${pageContext.request.contextPath}/index.jsp";
                 },

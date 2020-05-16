@@ -67,7 +67,7 @@
                                     </c:if>
 
                                     <c:if test="${not empty uname}">
-                                        <li class="nav-item"><a href="${pageContext.request.contextPath}/user-login.jsp"><span class="icon-left icon-xs flaticon-messenger-user-avatar">${uname}</span></a></li>
+                                        <li class="nav-item"><a href="${pageContext.request.contextPath}/user/findUser?uname=${uname}"><span class="icon-left icon-xs flaticon-messenger-user-avatar">${uname}</span></a></li>
                                     </c:if>
                                     <li class="nav-item"><a href="#" class="nav-item"><i class="mdi mdi-qqchat"></i></a></li>
                                     <li class="nav-item"><a href="#" class="nav-item"><i class="mdi mdi-wechat"></i></a></li>

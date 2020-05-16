@@ -32,4 +32,7 @@ public interface IUserDao {
 
     @Select("select count(*) from user where uname = #{uname} and upassword = #{upassword}")
     int pwdLogin(User user);
+
+    @Select("select * from user where uname=#{uname}")
+    User findUser(String uname);
 }

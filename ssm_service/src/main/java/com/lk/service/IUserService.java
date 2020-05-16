@@ -20,4 +20,6 @@ public interface IUserService {
     void phoneSign(User user);
 
     int pwdLogin(User user);
+
+    User findUser(String uname);
 }

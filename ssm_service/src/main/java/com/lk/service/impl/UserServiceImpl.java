@@ -52,4 +52,9 @@ public class UserServiceImpl implements IUserService {
     public int pwdLogin(User user) {
         return userDao.pwdLogin(user);
     }
+
+    @Override
+    public User findUser(String uname) {
+        return userDao.findUser(uname);
+    }
 }
