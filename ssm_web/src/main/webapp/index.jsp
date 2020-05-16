@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: Kevin
@@ -61,7 +62,13 @@
                                 <ul class="user-menu nav justify-content-center justify-content-md-start">
                                     <li class="nav-item"><button class="search-btn" id="js-search-btn"><span class="icon-left icon-xs flaticon-magnifying-glass-browser"></span>Search</button></li>
                                     <li class="nav-item"><a href="#"><span class="icon-left icon-xs flaticon-closed-envelope-email"></span>Subscribe</a></li>
-                                    <li class="nav-item"><a href="${pageContext.request.contextPath}/user-login.jsp"><span class="icon-left icon-xs flaticon-messenger-user-avatar"></span>Login</a></li>
+                                    <c:if test="${empty uname}">
+                                        <li class="nav-item"><a href="${pageContext.request.contextPath}/user-login.jsp"><span class="icon-left icon-xs flaticon-messenger-user-avatar">Login</span></a></li>
+                                    </c:if>
+
+                                    <c:if test="${not empty uname}">
+                                        <li class="nav-item"><a href="${pageContext.request.contextPath}/user-login.jsp"><span class="icon-left icon-xs flaticon-messenger-user-avatar">${uname}</span></a></li>
+                                    </c:if>
                                     <li class="nav-item"><a href="#" class="nav-item"><i class="mdi mdi-qqchat"></i></a></li>
                                     <li class="nav-item"><a href="#" class="nav-item"><i class="mdi mdi-wechat"></i></a></li>
                                 </ul>
@@ -87,7 +94,7 @@
                             <a href="index.jsp" class="nav-link">Home</a>
                         </li>
                         <li class="nav-item menu-item-has-children">
-                            <a href="program.jsp" class="nav-link">Programmer</a>
+                            <a href="${pageContext.request.contextPath}/program.jsp" class="nav-link">Programmer</a>
                         </li>
                         <li class="nav-item">
                             <a href="category-post.jsp" class="nav-link">Picture</a>
@@ -390,31 +397,7 @@
             <div class="row">
                 <div class="col-md-6 col-lg-5 footer-widget footer__copy">
                     <div class="footer__logo footer-widget">
-                        <a href="index.html" class="logo-title logo-title_reg animate">yomac</a>
-                    </div>
-                    <div class="textwidget">
-                        <p>Perfectly to any kind of news and <br>magazine blogs. Designed responsive<br> and ready for retina.</p>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-3 col-lg-2 footer-widget footer__page-menu">
-                    <div class="widget-menu">
-                        <ul class="footer-menu animate">
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="about.jsp">About</a></li>
-                            <li><a href="contact.jsp">Contacts</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-3 col-lg-3 footer-widget footer__cat-menu">
-                    <div class="widget-menu">
-                        <ul class="footer-menu animate">
-                            <li><a href="category-post.jsp">Art &amp; Illustration</a></li>
-                            <li><a href="category-post.jsp">Architecture</a></li>
-                            <li><a href="category-post.jsp">Fashion</a></li>
-                            <li><a href="category-post.jsp">Furniture</a></li>
-                            <li><a href="category-post.jsp">Graphic Design</a></li>
-                            <li><a href="category-post.jsp">Photography</a></li>
-                        </ul>
+                        <a href="index.html" class="logo-title logo-title_reg animate">IndoorsCoder</a>
                     </div>
                 </div>
                 <div class="col-lg-2 footer-widget footer__social-menu">
@@ -430,22 +413,11 @@
                 </div>
             </div>
 
-            <div class="row page-footer__bottom">
-                <div class="col-lg-10">
-                    <div class="copyright">&copy; 2020, Yomac Template, All Rights <a href="http://www.bootstrapmb.com/">Reserved</a>.</div>
-                </div>
-                <div class="col-lg-2">
-                    <div class="footer-nav nav">
-                        <li class="nav-item">
-                            <a href="#" class="nav-item">Privacy</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-item">Terms of use</a>
-                        </li>
-                    </div>
-                </div>
+            <div class="text-center">
+                    <a href="http://www.beian.miit.gov.cn/">豫ICP备20013743号</a>
             </div>
         </div>
+
     </footer>
     <!-- Footer section end -->
 

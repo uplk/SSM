@@ -49,13 +49,13 @@
             <div class="card-body p-0">
                 <table class="table table-striped projects">
                     <thead>
-                        <td>UUID</td>
+                        <td>Time</td>
                         <td>Class</td>
                         <td>Title</td>
                     </thead>
                     <c:forEach items="${majorList}" var="major">
                         <tbody>
-                            <td>${major.major_id}</td>
+                            <td>${major.major_time}</td>
                             <td>${major.major_sort}</td>
                             <td><a href="${pageContext.request.contextPath}/major/findOne.do?title=${major.major_title}">${major.major_title}</a></td>
                         </tbody>

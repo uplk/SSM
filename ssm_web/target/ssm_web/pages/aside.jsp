@@ -9,7 +9,7 @@
                 <img src="../img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">IndoorsyCoder</a>
+                <a href="#" class="d-block">IndoorsCoder</a>
             </div>
         </div>
 
@@ -19,9 +19,19 @@
                 <!-- Add icons to the links using the .nav-icon class
                      with font-awesome or any other icon font library -->
                 <li class="nav-item has-treeview">
-                    <a href="#" class="nav-link active">
+                    <a href="${pageContext.request.contextPath}/pages/index.jsp" class="nav-link active">
+                        <%--                        <i class="far fa-circle nav-icon"></i>--%>
+                        <p>Home</p>
+                    </a>
+
+                </li>
+                <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link">
 <%--                        <i class="far fa-circle nav-icon"></i>--%>
-                        <p>Data Statistics</p>
+                        <p>
+                            Data Statistics
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
                     </a>
                     <ul class="nav nav-treeview ">
                         <li clas="nav-item">

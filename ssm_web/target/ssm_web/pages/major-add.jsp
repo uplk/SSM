@@ -16,7 +16,7 @@
         <!--自定义样式-->
         <link href="../css/themes/select-mania-theme-darkblue.css" rel="stylesheet" type="text/css">
         <link href="../css/themes/select-mania-theme-green.css" rel="stylesheet" type="text/css">
-        <link href="./css/themes/select-mania-theme-orange.css" rel="stylesheet" type="text/css">
+<%--        <link href="./css/themes/select-mania-theme-orange.css" rel="stylesheet" type="text/css">--%>
         <link href="../css/themes/select-mania-theme-red.css" rel="stylesheet" type="text/css">
         <link href="../css/themes/select-mania-theme-square.css" rel="stylesheet" type="text/css">
     <!-- Font Awesome -->
@@ -36,17 +36,16 @@
     <!-- select -->
     <link rel=stylesheet href=https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css>
     <link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css>
-    <link href="css/multiple-select.css" rel="stylesheet">
-    <!-- major add 弹窗-->
-    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link href="../css/multiple-select.css" rel="stylesheet">
+
 
 </head>
 <body class="hold-transition sidebar-mini" onload="markdown()">
 <!-- Site wrapper -->
 <div class="wrapper">
     <jsp:include page="aside.jsp"/>
-    <!-- Content Wrapper. Contains page content -->
-    <% String major_content = request.getParameter("major_content");%>
+<%--    <!-- Content Wrapper. Contains page content -->--%>
+<%--    <% String major_content = request.getParameter("major_content");%>--%>
 
     <div class="form-group content-wrapper">
         <form id="program-add">
@@ -63,6 +62,10 @@
                     <%--                    <option value="wl"  size='16 '>初中物理</option>--%>
                 </select>
             </div>
+            <label for="major_title" class="col-sm-1 control-label">标题</label>
+            <div class="col-md-2 col-lg-4" >
+                <input id="major_title" class="form-control" name="major_title"/>
+            </div>
             <label for="submit" class="col-sm-1 control-label">提交</label>
             <div class="col-md-2 col-lg-4">
                 <button id="submit" type="button" class="btn btn-block btn-outline-primary form-control">Submit</button>
@@ -73,12 +76,8 @@
     </div>
     <!-- /.content-wrapper -->
 
-    <footer class="main-footer">
-        <div class="float-right d-none d-sm-block">
-            <b>Version</b> 3.0.4
-        </div>
-        <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong> All rights
-        reserved.
+    <footer class="main-footer" >
+        <strong>Copyright &copy; 2014-2019 <a href="http://www.beian.miit.gov.cn/">豫ICP备20013743号</a>.</strong>
     </footer>
 
 </div>

@@ -1,11 +1,20 @@
 package com.lk.domain;
 
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import java.util.Date;
+
 public class Major {
     String major_id;
     String major_sort_id;
     String major_sort;
     String major_content;
     String major_title;
+    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+    Date major_time;
 
     public String getMajor_id() {
         return major_id;
@@ -47,6 +56,16 @@ public class Major {
         this.major_title = major_title;
     }
 
+    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
+    public Date getMajor_time() {
+        return major_time;
+    }
+
+    public void setMajor_time(Date major_time) {
+        this.major_time = major_time;
+    }
+
     @Override
     public String toString() {
         return "Major{" +
@@ -55,6 +74,7 @@ public class Major {
                 ", major_sort='" + major_sort + '\'' +
                 ", major_content='" + major_content + '\'' +
                 ", major_title='" + major_title + '\'' +
+                ", major_time=" + major_time +
                 '}';
     }
 }

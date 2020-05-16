@@ -9,8 +9,8 @@ import java.util.List;
 
 @Repository
 public interface IMajorDao {
-    @Insert("insert into major(major_id, major_sort_id, major_content, major_title) values " +
-            "(#{major_id},#{major_sort_id}, #{major_content}, #{major_title})")
+    @Insert("insert into major(major_id, major_sort_id, major_content, major_title, major_time) values " +
+            "(#{major_id},#{major_sort_id}, #{major_content}, #{major_title}, #{major_time})")
     void upload(Major major);
 
     @Select("select * from major_view")

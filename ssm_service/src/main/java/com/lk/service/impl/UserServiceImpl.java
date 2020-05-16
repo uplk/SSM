@@ -1,6 +1,7 @@
 package com.lk.service.impl;
 
 import com.lk.dao.IUserDao;
+import com.lk.domain.Major;
 import com.lk.domain.User;
 import com.lk.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,5 +31,25 @@ public class UserServiceImpl implements IUserService {
     @Override
     public void register(User user) throws Exception {
         userDao.register(user);
+    }
+
+    @Override
+    public List<Major> findMajorList() throws Exception {
+        return userDao.findMajorList();
+    }
+
+    @Override
+    public int checkUname(String uname) {
+        return userDao.checkUname(uname);
+    }
+
+    @Override
+    public void phoneSign(User user) {
+        userDao.phoneSign(user);
+    }
+
+    @Override
+    public int pwdLogin(User user) {
+        return userDao.pwdLogin(user);
     }
 }

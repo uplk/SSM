@@ -4,7 +4,7 @@ public class User {
     private String uid;
     private String uname;
     private String upassword;
-    private int utl;
+    private String utl;
     private String uqq;
     private String uwechat;
 
@@ -32,11 +32,11 @@ public class User {
         this.upassword = upassword;
     }
 
-    public int getUtl() {
+    public String getUtl() {
         return utl;
     }
 
-    public void setUtl(int utl) {
+    public void setUtl(String utl) {
         this.utl = utl;
     }
 
