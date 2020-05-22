@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+
 @Service
 @Transactional
 public class UserServiceImpl implements IUserService {
@@ -56,5 +57,15 @@ public class UserServiceImpl implements IUserService {
     @Override
     public User findUser(String uname) {
         return userDao.findUser(uname);
+    }
+
+    @Override
+    public String findID(String uname) {
+        return userDao.findID(uname);
+    }
+
+    @Override
+    public void addUtl(User user) {
+        userDao.addUtl(user);
     }
 }

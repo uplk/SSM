@@ -14,6 +14,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel=stylesheet href=${pageContext.request.contextPath}/css/bootstrap.min.css>
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="../plugins/fontawesome-free/css/all.min.css">
@@ -27,8 +28,10 @@
     <link rel="stylesheet" href="../css/style.css" />
     <link rel="stylesheet" href="../css/editormd.css" />
     <link rel="shortcut icon" href="https://pandao.github.io/editor.md/favicon.ico" type="image/x-icon" />
+
 </head>
 <body>
+<div class="wrapper">
     <jsp:include page="aside.jsp"/>
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
@@ -57,7 +60,7 @@
                         <tbody>
                             <td>${major.major_time}</td>
                             <td>${major.major_sort}</td>
-                            <td><a href="${pageContext.request.contextPath}/major/findOne.do?title=${major.major_title}">${major.major_title}</a></td>
+                            <td><a href="${pageContext.request.contextPath}/major/findOne.do?name=${major.major_title}">${major.major_title}</a></td>
                         </tbody>
                     </c:forEach>
 
@@ -71,7 +74,10 @@
     <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
-
+    <footer class="main-footer" >
+        <strong>Copyright &copy; 2014-2019 <a href="http://www.beian.miit.gov.cn/">豫ICP备20013743号</a>.</strong>
+    </footer>
+</div>
 
 <!-- jQuery -->
 <script src="../plugins/jquery/jquery.min.js"></script>
@@ -81,45 +87,6 @@
 <script src="../js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="../js/demo.js"></script>
-<!-- Markdown -->
-<script src="../js/jquery.min.js"></script>
-<script src="../js/editormd.min.js"></script>
-<script src="../lib/marked.min.js"></script>
-<script src="../lib/prettify.min.js"></script>
-<script src="../lib/raphael.min.js"></script>
-<script src="../lib/underscore.min.js"></script>
-<script src="../lib/sequence-diagram.min.js"></script>
-<script src="../lib/flowchart.min.js"></script>
-<script src="../lib/jquery.flowchart.min.js"></script>
-<script src="./editormd.js"></script>
-<script type="text/javascript">
-    <!--markdown-->
-    editormd.markdownToHTML("markDown-major", {
-        htmlDecode      : "style,script,iframe",
-        emoji           : true,
-        taskList        : true,
-        tex             : true,  // 默认不解析
-        flowChart       : true,  // 默认不解析
-        sequenceDiagram : true  // 默认不解析
-    });
-    <%--<!-- find one msg-->--%>
-    <%--$(function () {--%>
-    <%--    $("#one").on("click", function(){--%>
 
-    <%--        var title =  $("#one").text();--%>
-
-    <%--        $.ajax({--%>
-    <%--            type:"post",--%>
-    <%--            url:"${pageContext.request.contextPath}/major/findOne.do?title="+title,--%>
-    <%--            success:function(data) {--%>
-    <%--                alert("Success");--%>
-    <%--            },--%>
-    <%--            error:function(e){--%>
-    <%--                alert("Error");--%>
-    <%--            }--%>
-    <%--        })--%>
-    <%--    })--%>
-    <%--})--%>
-</script>
 </body>
 </html>

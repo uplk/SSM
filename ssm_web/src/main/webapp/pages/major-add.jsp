@@ -6,48 +6,56 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>AdminLTE 3 | Project Add</title>
+    <title>专业文章列表</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!--下拉框-->
-        <!--图标样式-->
-        <link href="http://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-        <!--基本样式-->
-        <link href="../css/select-mania.css" rel="stylesheet" type="text/css">
-        <!--自定义样式-->
-        <link href="../css/themes/select-mania-theme-darkblue.css" rel="stylesheet" type="text/css">
-        <link href="../css/themes/select-mania-theme-green.css" rel="stylesheet" type="text/css">
-<%--        <link href="./css/themes/select-mania-theme-orange.css" rel="stylesheet" type="text/css">--%>
-        <link href="../css/themes/select-mania-theme-red.css" rel="stylesheet" type="text/css">
-        <link href="../css/themes/select-mania-theme-square.css" rel="stylesheet" type="text/css">
+
     <!-- Font Awesome -->
     <link rel="stylesheet" href="../plugins/fontawesome-free/css/all.min.css">
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- overlayScrollbars -->
     <link rel="stylesheet" href="../css/adminlte.min.css">
-    <!-- major-add -->
-    <link rel="stylesheet" href="../css/major-add.css">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
     <!-- markdown -->
     <link rel="stylesheet" href="../css/style.css" />
     <link rel="stylesheet" href="../css/editormd.css" />
     <link rel="shortcut icon" href="https://pandao.github.io/editor.md/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="../css/major-add.css">
+
+    <!--下拉框-->
+        <!--图标样式-->
+<%--        <link href="http://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">--%>
+<%--        <!--基本样式-->--%>
+<%--        <link href="../css/select-mania.css" rel="stylesheet" type="text/css">--%>
+<%--        <!--自定义样式-->--%>
+<%--        <link href="../css/themes/select-mania-theme-darkblue.css" rel="stylesheet" type="text/css">--%>
+<%--        <link href="../css/themes/select-mania-theme-green.css" rel="stylesheet" type="text/css">--%>
+<%--&lt;%&ndash;        <link href="./css/themes/select-mania-theme-orange.css" rel="stylesheet" type="text/css">&ndash;%&gt;--%>
+<%--        <link href="../css/themes/select-mania-theme-red.css" rel="stylesheet" type="text/css">--%>
+<%--        <link href="../css/themes/select-mania-theme-square.css" rel="stylesheet" type="text/css">--%>
+    <!-- Font Awesome -->
+<%--    <link rel="stylesheet" href="../plugins/fontawesome-free/css/all.min.css">--%>
+<%--    <!-- major-add -->--%>
+
     <!-- select -->
-    <link rel=stylesheet href=https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css>
-    <link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css>
-    <link href="../css/multiple-select.css" rel="stylesheet">
+    <link rel=stylesheet href=${pageContext.request.contextPath}/css/bootstrap.min.css>
+<%--    <link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css>--%>
+<%--    <link href="../css/multiple-select.css" rel="stylesheet">--%>
 
 
 </head>
-<body class="hold-transition sidebar-mini" onload="markdown()">
+<body onload="markdown()">
 <!-- Site wrapper -->
 <div class="wrapper">
     <jsp:include page="aside.jsp"/>
 <%--    <!-- Content Wrapper. Contains page content -->--%>
 <%--    <% String major_content = request.getParameter("major_content");%>--%>
 
-    <div class="form-group content-wrapper">
+    <div class="form-group content-wrapper" style="background: url(${pageContext.request.contextPath}/assets/img/new6.jpg); background-size:100% 100%;">
         <form id="program-add">
             <!-- Main content -->
             <label for="test" class="col-sm-1 control-label">文章</label>
@@ -66,7 +74,6 @@
             <div class="col-md-2 col-lg-4" >
                 <input id="major_title" class="form-control" name="major_title"/>
             </div>
-            <label for="submit" class="col-sm-1 control-label">提交</label>
             <div class="col-md-2 col-lg-4">
                 <button id="submit" type="button" class="btn btn-block btn-outline-primary form-control">Submit</button>
             </div>

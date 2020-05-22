@@ -114,6 +114,12 @@
                                 <p>Picture Add</p>
                             </a>
                         </li>
+                        <li clas="nav-item">
+                            <a href="${pageContext.request.contextPath}/pages/picture-sort-add.jsp" class="nav-link">
+                                <%--                                <i class="far fa-circle nav-icon"></i>--%>
+                                <p>Picture Sort Add</p>
+                            </a>
+                        </li>
                         <li class="nav-item ">
                             <a href="${pageContext.request.contextPath}/picture/findAll.do" class="nav-link">
 <%--                                <i class="far fa-circle nav-icon"></i>--%>
@@ -146,15 +152,15 @@
                             </a>
                         </li>
                         <li class="nav-item ">
-                            <a href="${pageContext.request.contextPath}/video/findAll.do" class="nav-link">
-<%--                                <i class="far fa-circle nav-icon"></i>--%>
-                                <p>Video List</p>
+                            <a href="${pageContext.request.contextPath}/pages/video-sort-add.jsp" class="nav-link">
+                                <%--                                <i class="far fa-circle nav-icon"></i>--%>
+                                <p>Video Sort Add</p>
                             </a>
                         </li>
                         <li class="nav-item ">
-                            <a href="${pageContext.request.contextPath}/pages/video-show-detail.jsp" class="nav-link">
+                            <a href="${pageContext.request.contextPath}/video/findAll.do" class="nav-link">
 <%--                                <i class="far fa-circle nav-icon"></i>--%>
-                                <p>Video Show</p>
+                                <p>Video List</p>
                             </a>
                         </li>
                     </ul>
@@ -176,16 +182,16 @@
                                 <p>Music Add</p>
                             </a>
                         </li>
+                        <li clas="nav-item">
+                            <a href="${pageContext.request.contextPath}/pages/music-sort-add.jsp" class="nav-link">
+                                <%--                                <i class="far fa-circle nav-icon"></i>--%>
+                                <p>Music Sort Add</p>
+                            </a>
+                        </li>
                         <li class="nav-item ">
                             <a href="${pageContext.request.contextPath}/music/findAll.do" class="nav-link">
 <%--                                <i class="far fa-circle nav-icon"></i>--%>
                                 <p>Music List</p>
-                            </a>
-                        </li>
-                        <li class="nav-item ">
-                            <a href="${pageContext.request.contextPath}/pages/music-show-detail.jsp" class="nav-link">
-<%--                                <i class="far fa-circle nav-icon"></i>--%>
-                                <p>Music Show</p>
                             </a>
                         </li>
                     </ul>

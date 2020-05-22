@@ -1,4 +1,10 @@
+com\lk\service\IMusicService.class
+com\lk\service\impl\MusicServiceImpl.class
 com\lk\service\impl\UserServiceImpl.class
+com\lk\service\IPictureService.class
+com\lk\service\IVideoService.class
+com\lk\service\impl\PictureServiceImpl.class
 com\lk\service\IUserService.class
+com\lk\service\impl\VideoServiceImpl.class
 com\lk\service\IMajorService.class
 com\lk\service\impl\MajorServiceImpl.class

@@ -7,7 +7,20 @@
     <meta charset="utf-8" />
     <title>登录</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/login.css" />
-
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/myAlert.css" />
+    <style type="text/css">
+        .alertBox{
+            width: 38rem;
+            height: 20rem;
+            position: absolute;
+            top: 25%;
+            left:53%;
+            margin-left: -19rem;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            background-color: #fff;
+        }
+    </style>
 </head>
 
 <body>
@@ -96,6 +109,7 @@
 </div>
 <!-- jQuery -->
 <script src="${pageContext.request.contextPath}/js/jquery.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/jquery.validate.min.js"></script>
 <!-- jQuery -->
 <%--<script src="${pageContext.request.contextPath}/plugins/jquery/jquery.min.js"></script>--%>
 <!-- login-->
@@ -103,22 +117,55 @@
 <!-- Bootstrap 4 -->
 <%--<script src="${pageContext.request.contextPath}/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>--%>
 <script type="text/javascript" >
-
     $(function () {
         $("#code_btn").on("click", function(){
             var utl =$("#utl").val();
-            $.ajax({
-                type:"post",
-                url:"${pageContext.request.contextPath}/user/getCode.do",
-                data:{utl :utl},
-                dataType : "text",
-                success:function(data) {
-                    alert("验证码发送成功");
-                },
-                error:function(e){
-                    alert("验证码发送失败");
-                }
-            })
+            var msg ="";
+            if(!utl){
+                msg= "电话号码不能为空";
+                var myTip = {
+                    title: "Tip",
+                    msg: msg,
+                    button:{
+                        ok: "是",
+                    }
+                };
+                MyAlert(myTip);
+            }else{
+                $.ajax({
+                    type:"post",
+                    url:"${pageContext.request.contextPath}/user/getCode.do",
+                    data:{utl :utl},
+                    dataType : "text",
+                    success:function(data) {
+                        msg = "验证码发送成功";
+                        var myTip = {
+                            title: "Tip",
+                            msg: msg,
+                            button:{
+                                ok: "是",
+                            }
+                        };
+                        MyAlert(myTip);
+
+                    },
+                    error:function(e){
+                        msg = "验证码发送失败";
+                        var myTip = {
+                            title: "Tip",
+                            msg: msg,
+                            button:{
+                                ok: "是",
+                            }
+                        };
+                        MyAlert(myTip);
+
+                    }
+                })
+            }
+
+
+
         })
     })
 
@@ -126,18 +173,58 @@
         $("#pwd_login").on("click", function(){
             var uname =$("#uname").val();
             var upassword =$("#upassword").val();
-            $.ajax({
+            var msg ="";
+            if(!uname ){
+                msg = "账号为空!";
+                var myTip = {
+                    title: "Tip",
+                    msg: msg,
+                    button:{
+                        ok: "是",
+                    }
+                };
+                MyAlert(myTip);
+
+            }else if(!upassword){
+                msg = "密码为空！"
+                var myTip = {
+                    title: "Tip",
+                    msg: msg,
+                    button:{
+                        ok: "是",
+                    }
+                };
+                MyAlert(myTip);
+
+            }else{
+                $.ajax({
                 type:"post",
                 url:"${pageContext.request.contextPath}/user/pwdLogin.do",
                 data:{uname :uname, upassword: upassword},
                 dataType : "text",
                 success:function(data) {
-                    window.location.href="${pageContext.request.contextPath}/index.jsp";
+                    if(data == "SUCCESS"){
+                        window.location.href="${pageContext.request.contextPath}/index.jsp";
+                    }else if(data == "ERROR"){
+                        alert("error")
+                        var myTip = {
+                            title: "Tip",
+                            msg: "账号或密码错误",
+                            button:{
+                                ok: "是",
+                            }
+                        };
+                        MyAlert(myTip);
+
+                    }
+
                 },
                 error:function(e){
-                    alert("??");
-                }
-            })
+                    alert("error");
+                    }
+            })}
+
+
         })
     })
 
@@ -146,18 +233,67 @@
         $("#phone_login").on("click", function(){
             var utl =$("#utl").val();
             var code = $("#verifyCode").val();
-            $.ajax({
-                type:"post",
-                url:"${pageContext.request.contextPath}/user/phoneSign.do",
-                data:{utl :utl, code : code},
-                dataType: 'json',
-                success:function(data) {
-                    window.location.href="${pageContext.request.contextPath}/index.jsp";
-                },
-                error:function(e){
-                    alert("error");
-                }
-            })
+            var msg ="";
+            if(!utl){
+                msg = "手机号不能为空";
+                var myTip = {
+                    title: "Tip",
+                    msg: msg,
+                    button:{
+                        ok: "是",
+                    }
+                };
+                MyAlert(myTip);
+            }else if(!code){
+                msg = "验证码不能为空";
+                var myTip = {
+                    title: "Tip",
+                    msg: msg,
+                    button:{
+                        ok: "是",
+                    }
+                };
+                MyAlert(myTip);
+            }else{
+                $.ajax({
+                    type:"post",
+                    url:"${pageContext.request.contextPath}/user/phoneSign.do",
+                    data:{utl :utl, code : code},
+                    dataType: 'json',
+                    success:function(data) {
+                        if(data.error == "error"){
+                            msg = "验证码错误";
+                            var myTip = {
+                                title: "Tip",
+                                msg: msg,
+                                button:{
+                                    ok: "是",
+                                }
+                            };
+                            MyAlert(myTip);
+                        }else if(data.null == "null"){
+                            msg = "没有发送验证码";
+                            var myTip = {
+                                title: "Tip",
+                                msg: msg,
+                                button:{
+                                    ok: "是",
+                                }
+                            };
+                            MyAlert(myTip);
+                        }else{
+                            window.location.href="${pageContext.request.contextPath}/index.jsp";
+                        }
+
+                    },
+                    error:function(e){
+                        alert("error");
+                    }
+                })
+            }
+
+
+
         })
     })
 
@@ -192,7 +328,87 @@
             }
         }, 1000);
     })
+    ;
+    function MyAlert(obj){
+        var callbackOK = null,
+            callbackCancle = null;
+        if ($(".alertBox").length == 0) {
+            var alertElem = '<div class="alertDisable">\n' +
+                '\t\t<div class="alertBox">\n' +
+                '\t\t\t<ul>\n' +
+                '\t\t\t\t<li class="alertHeader">标题</li>\n' +
+                '\t\t\t\t<li class="alertContent">\n' +
+                '\t\t\t\t<p></p>\n' +
+                '\t\t\t\t</li>\n' +
+                '\t\t\t\t<li class="alertFooter">\n' +
+                '\t\t\t\t\t<a href="javascript:void(0);" class="alertOK">确定</a>\n' +
+                '\t\t\t\t\t<a href="javascript:void(0);" class="alertCancle">取消</a>\n' +
+                '\t\t\t\t</li>\n' +
+                '\t\t\t</ul>\n' +
+                '\t\t</div>\n' +
+                '\t</div>';
+            $("body").append(alertElem);
+        }
+        $(".alertFooter").on("click","a",function(){
+            if ($(this).attr("class") == "alertOK") {
+                if (callbackOK) {
+                    callbackOK();
+                }
+                $(".alertDisable").css("display","none");
+            }
+            else{
+                if (callbackCancle) {
+                    callbackCancle();
+                }
+                $(".alertDisable").css("display","none");
+            }
+            $(".alertContent").css({"line-height":"normal"});
+            $(".alertContent p").css({"text-align":"left","text-indent":"2rem"});
+            $(".alertFooter").off("click","a");
+        });
 
+        if (!obj) {
+            $(".alertCancle").css("display","none");
+            $(".alertOK").css("margin-right","0");
+            $(".alertDisable").css("display","block");
+            return;
+        }
+
+        if (obj.title) {
+            $(".alertHeader").text(obj.title);
+        }
+        if (obj.msg) {
+            $(".alertContent p").text(obj.msg);
+        }
+
+        if (obj.button && obj.button.ok) {
+            $(".alertOK").text(obj.button.ok);
+            callbackOK = obj.button.okEvent;
+            if (obj.button.cancle) {
+                $(".alertCancle").text(obj.button.cancle);
+                $(".alertCancle").css("display","inline-block");
+                $(".alertOK").css("margin-right","5%");
+                callbackCancle = obj.button.cancleEvent;
+            }
+            else{
+                $(".alertCancle").css("display","none");
+                $(".alertOK").css("margin-right","0");
+            }
+        }
+        else{
+            $(".alertCancle").css("display","none");
+            $(".alertOK").css("margin-right","0");
+        }
+
+        $(".alertDisable").css("display","block");
+        var p_msg = $(".alertContent p");
+        // var a = parseInt(p_msg.css("font-size"));
+        // var b= p_msg.height();
+        if (p_msg.height() < 2*parseInt(p_msg.css("font-size"))) {
+            $(".alertContent").css({"line-height":"10rem"});
+            $(".alertContent p").css({"text-align":"center","text-indent":"0"});
+        }
+    }
 </script>
 </body>
 

@@ -22,17 +22,63 @@
         <!--文件的后缀名-->
         <property name="suffix" value=".jsp"/>
     </bean>
+    <!-- 定义文件上传解析器 -->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <!-- 设定默认编码 -->
+        <property name="defaultEncoding" value="UTF-8"></property>
+        <!-- 设定文件上传的最大值5MB，50*1024*1024 -->
+
+        <property name="maxUploadSize" value=" 524288000"></property>
+
+    </bean>
     <!--设置静态资源不过滤 -->
     <mvc:resources mapping="/css/**" location="/css/"/>
     <mvc:resources mapping="/images/**" location="/img/"/>
     <mvc:resources mapping="/js/**" location="/js/"/>
     <mvc:resources mapping="/plugins/**" location="/plugins/"/>
+    <mvc:resources mapping="/upload/**" location="/upload/"/>
 
     <!--开启SpringMVC框架注解的支持 -->
     <mvc:annotation-driven/>
+
+    <!-- 配置拦截器 -->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <mvc:exclude-mapping path="/user-login"/>
+            <bean class="com.lk.interceptor.LoginInterceptor">
+                <property name="excludeSuffix">
+                   <list>
+                       <value>/major/findSortID.do</value>
+                       <value>/major/findAll.do</value>
+                       <value>/major/findOne.do</value>
+                       <value>/picture/findSortID.do</value>
+                       <value>/picture/findAll.do</value>
+                       <value>/picture/findOne.do</value>
+                       <value>/picture/findAllJson.do</value>
+                       <value>/picture/findContent.do</value>
+                       <value>/out</value>
+                       <value>.js</value>
+                       <value>.css</value>
+                       <value>.gif</value>
+                       <value>.png</value>
+                       <value>.map</value>
+                       <value>.jpg</value>
+                       <value>.woff3</value>
+                       <value>.woff2</value>
+                       <value>.woff</value>
+                       <value>.ttf</value>
+                       <value>.eot</value>
+                       <value>.svg</value>
+                   </list>
+                </property>
+            </bean>
+
+        </mvc:interceptor>
+    </mvc:interceptors>
     <!-- 允许对静态资源文件的访问 -->
     <!--将静态资源交给defaultServlet处理，不给springmvc处理-->
-<!--    <mvc:default-servlet-handler/>-->
+    <mvc:default-servlet-handler/>
     <!--
         支持AOP的注解支持，AOP底层使用代理技术
         JDK动态代理，要求必须有接口

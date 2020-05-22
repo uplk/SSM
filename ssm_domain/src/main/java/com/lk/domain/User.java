@@ -55,4 +55,16 @@ public class User {
     public void setUwechat(String uwechat) {
         this.uwechat = uwechat;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "uid='" + uid + '\'' +
+                ", uname='" + uname + '\'' +
+                ", upassword='" + upassword + '\'' +
+                ", utl='" + utl + '\'' +
+                ", uqq='" + uqq + '\'' +
+                ", uwechat='" + uwechat + '\'' +
+                '}';
+    }
 }

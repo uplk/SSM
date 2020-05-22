@@ -1,2 +1,5 @@
-com\lk\controller\MajorController.class
+com\lk\controller\MusicController.class
+com\lk\controller\PictureController.class
 com\lk\controller\UserController.class
+com\lk\controller\MajorController.class
+com\lk\controller\VideoController.class

@@ -1,2 +1,5 @@
-com\lk\dao\IMajorDao.class
+com\lk\dao\IMusicDao.class
 com\lk\dao\IUserDao.class
+com\lk\dao\IMajorDao.class
+com\lk\dao\IVideoDao.class
+com\lk\dao\IPictureDao.class

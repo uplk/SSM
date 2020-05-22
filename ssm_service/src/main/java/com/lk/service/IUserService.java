@@ -22,4 +22,8 @@ public interface IUserService {
     int pwdLogin(User user);
 
     User findUser(String uname);
+
+    String findID(String uname);
+
+    void addUtl(User user);
 }

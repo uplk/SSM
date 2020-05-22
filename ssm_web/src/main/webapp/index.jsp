@@ -57,27 +57,27 @@
             <div class="top-bar">
                 <div class="top-bar__widgets">
                     <div class="row align-items-center">
-                        <div class="col-md-5 col-lg-7">
+                        <div class="col-md-3 col-lg-8">
                             <div class="top-bar__user-menu">
                                 <ul class="user-menu nav justify-content-center justify-content-md-start">
+                                    <li class="nav-item"><a href="${pageContext.request.contextPath}/"><span class="icon-left icon-xs flaticon-web-page-home  "></span>home</a></li>
                                     <li class="nav-item"><button class="search-btn" id="js-search-btn"><span class="icon-left icon-xs flaticon-magnifying-glass-browser"></span>Search</button></li>
                                     <li class="nav-item"><a href="#"><span class="icon-left icon-xs flaticon-closed-envelope-email"></span>Subscribe</a></li>
                                     <c:if test="${empty uname}">
                                         <li class="nav-item"><a href="${pageContext.request.contextPath}/user-login.jsp"><span class="icon-left icon-xs flaticon-messenger-user-avatar">Login</span></a></li>
+                                        <li class="nav-item"><a href="#" class="nav-item"><i class="mdi mdi-qqchat"></i></a></li>
+                                    </c:if>
+                                    <c:if test="${not empty uname}">
+                                        <li class="nav-item"><a href="${pageContext.request.contextPath}/user/findUser.do?uname=${uname}"><span class="icon-left icon-xs flaticon-messenger-user-avatar">${uname}</span></a></li>
                                     </c:if>
 
-                                    <c:if test="${not empty uname}">
-                                        <li class="nav-item"><a href="${pageContext.request.contextPath}/user/findUser?uname=${uname}"><span class="icon-left icon-xs flaticon-messenger-user-avatar">${uname}</span></a></li>
-                                    </c:if>
-                                    <li class="nav-item"><a href="#" class="nav-item"><i class="mdi mdi-qqchat"></i></a></li>
-                                    <li class="nav-item"><a href="#" class="nav-item"><i class="mdi mdi-wechat"></i></a></li>
                                 </ul>
                             </div>
                         </div>
 
                         <div class="col-md-2 col-lg-4">
-                            <div class="top-bar__logo text-lg-center">
-                                <a href="index.html" class="logo-title logo-title_reg">IndoorsCoder</a>
+                            <div class="top-bar__logo text-right">
+                                <a href="${pageContext.request.contextPath}/index.jsp" class="logo-title logo-title_reg">IndoorsCoder</a>
                             </div>
                         </div>
 
@@ -97,16 +97,16 @@
                             <a href="${pageContext.request.contextPath}/program.jsp" class="nav-link">Programmer</a>
                         </li>
                         <li class="nav-item">
-                            <a href="category-post.jsp" class="nav-link">Picture</a>
+                            <a href="${pageContext.request.contextPath}/picture.jsp" class="nav-link">Picture</a>
                         </li>
                         <li class="nav-item">
-                            <a href="category-post.jsp" class="nav-link">Video</a>
+                            <a href="${pageContext.request.contextPath}/video.jsp" class="nav-link">Video</a>
                         </li>
                         <li class="nav-item">
-                            <a href="category-post.jsp" class="nav-link">Music</a>
+                            <a href="#" class="nav-link">Music</a>
                         </li>
                         <li class="nav-item">
-                            <a href="about.jsp" class="nav-link">About</a>
+                            <a href="#" class="nav-link">About</a>
                         </li>
                     </ul>
                 </div>
@@ -123,32 +123,32 @@
                 <div class="main-slider__item" style="background-image: url('assets/img/slide-2.jpg')">
                     <div class="container">
                         <div class="item__content">
-                            <div class="cat-title"><a href="category-post.jsp">Fashion</a></div>
-                            <h1 class="main-slider__title"><a href="post-single_sidebar.jsp">Tips For Choosing The<br> Perfect Gloss For Your Lips</a></h1>
+                            <div class="cat-title"><a href="">Picture</a></div>
+                            <h1 class="main-slider__title"><a href="picture-single_sidebar.jsp">Tips For Choosing The<br> Perfect Gloss For Your Lips</a></h1>
                         </div>
                     </div>
                 </div>
                 <div class="main-slider__item" style="background-image: url('assets/img/slide-3.jpg')">
                     <div class="container">
                         <div class="item__content">
-                            <div class="cat-title"><a href="category-post.jsp">Photography</a></div>
-                            <div class="main-slider__title"><a href="post-single_sidebar.jsp">American Standards<br> And European Culture</a></div>
+                            <div class="cat-title"><a href="">Video</a></div>
+                            <div class="main-slider__title"><a href="video-single_sidebar.jsp">American Standards<br> And European Culture</a></div>
                         </div>
                     </div>
                 </div>
                 <div class="main-slider__item" style="background-image: url('assets/img/slide-4.jpg')">
                     <div class="container">
                         <div class="item__content">
-                            <div class="cat-title"><a href="category-post.jsp">Photography</a></div>
-                            <div class="main-slider__title"><a href="post-single_sidebar.jsp">Put Wings On Your<br> Dreams</a></div>
+                            <div class="cat-title"><a href="">Music</a></div>
+                            <div class="main-slider__title"><a href="#">Put Wings On Your<br> Dreams</a></div>
                         </div>
                     </div>
                 </div>
                 <div class="main-slider__item" style="background-image: url('assets/img/slide-1.jpg')">
                     <div class="container">
                         <div class="item__content">
-                            <div class="cat-title"><a href="category-post.jsp">Photography</a></div>
-                            <div class="main-slider__title"><a href="post-single_sidebar.jsp">A Starter Guide To Self <br>Improvement</a></div>
+                            <div class="cat-title"><a href="">Major</a></div>
+                            <div class="main-slider__title"><a href="#">A Starter Guide To Self <br>Improvement</a></div>
                         </div>
                     </div>
                 </div>
@@ -174,7 +174,7 @@
                                 <a href="post-single_sidebar.jsp"><img src="assets/img/small-post6.jpg" alt=""></a>
                             </div>
                             <div class="widget-post__content">
-                                <div class="cat-title"><a href="category-post.jsp">Art &amp; Illustration</a></div>
+                                <div class="cat-title"><a href="">Art &amp; Illustration</a></div>
                                 <div class="h4 widget-post__title"><a href="post-single_sidebar.jsp">When The Morning Dawns</a></div>
                                 <div class="widget-post__views">820</div>
                             </div>
@@ -184,7 +184,7 @@
                                 <a href="post-single_sidebar.jsp"><img src="assets/img/small-post2.jpg" alt=""></a>
                             </div>
                             <div class="widget-post__content">
-                                <div class="cat-title"><a href="category-post.jsp">Graphic Design</a></div>
+                                <div class="cat-title"><a href="">Graphic Design</a></div>
                                 <div class="h4 widget-post__title"><a href="post-single_sidebar.jsp">Comment On The Importance</a></div>
                                 <div class="widget-post__views">404</div>
                             </div>
@@ -194,7 +194,7 @@
                                 <a href="post-single_sidebar.jsp"><img src="assets/img/small-post3.jpg" alt=""></a>
                             </div>
                             <div class="widget-post__content">
-                                <div class="cat-title"><a href="category-post.jsp">Furniture</a></div>
+                                <div class="cat-title"><a href="">Furniture</a></div>
                                 <div class="h4 widget-post__title"><a href="post-single_sidebar.jsp">The Bright Side Of Life</a></div>
                                 <div class="widget-post__views">125</div>
                             </div>
@@ -204,7 +204,7 @@
                                 <a href="post-single_sidebar.jsp"><img src="assets/img/small-post4.jpg" alt=""></a>
                             </div>
                             <div class="widget-post__content">
-                                <div class="cat-title"><a href="category-post.jsp">Fashion</a></div>
+                                <div class="cat-title"><a href="">Fashion</a></div>
                                 <div class="h4 widget-post__title"><a href="post-single_sidebar.jsp">Philosophy As A Science</a></div>
                                 <div class="widget-post__views">987</div>
                             </div>
@@ -214,7 +214,259 @@
                                 <a href="post-single_sidebar.jsp"><img src="assets/img/small-post5.jpg" alt=""></a>
                             </div>
                             <div class="widget-post__content">
-                                <div class="cat-title"><a href="category-post.jsp">Photography</a></div>
+                                <div class="cat-title"><a href="">Photography</a></div>
+                                <div class="h4 widget-post__title"><a href="post-single_sidebar.jsp">Just One State</a></div>
+                                <div class="widget-post__views">743</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 owl-carousel__navigation">
+                        <h2 class="h4 owl-carousel__title widget-sidebar__title">Most popular</h2>
+                        <div class="owl-carousel__btns">
+                            <a class="btn owl-carousel__btn prev animate"><span class="icon flaticon-left-arrow-sign"></span></a>
+                            <a class="btn owl-carousel__btn next animate"><span class="icon flaticon-right-direction"></span></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="owl-carousel__wrap popular-posts-carousel">
+                    <ul class="owl-carousel item-3 custom-nav post-list list-unstyled">
+                        <li class="widget-post carousel__item">
+                            <div class="widget-post__img">
+                                <a href="post-single_sidebar.jsp"><img src="assets/img/small-post6.jpg" alt=""></a>
+                            </div>
+                            <div class="widget-post__content">
+                                <div class="cat-title"><a href="">Art &amp; Illustration</a></div>
+                                <div class="h4 widget-post__title"><a href="post-single_sidebar.jsp">When The Morning Dawns</a></div>
+                                <div class="widget-post__views">820</div>
+                            </div>
+                        </li>
+                        <li class="widget-post carousel__item">
+                            <div class="widget-post__img">
+                                <a href="post-single_sidebar.jsp"><img src="assets/img/small-post2.jpg" alt=""></a>
+                            </div>
+                            <div class="widget-post__content">
+                                <div class="cat-title"><a href="">Graphic Design</a></div>
+                                <div class="h4 widget-post__title"><a href="post-single_sidebar.jsp">Comment On The Importance</a></div>
+                                <div class="widget-post__views">404</div>
+                            </div>
+                        </li>
+                        <li class="widget-post carousel__item">
+                            <div class="widget-post__img">
+                                <a href="post-single_sidebar.jsp"><img src="assets/img/small-post3.jpg" alt=""></a>
+                            </div>
+                            <div class="widget-post__content">
+                                <div class="cat-title"><a href="">Furniture</a></div>
+                                <div class="h4 widget-post__title"><a href="post-single_sidebar.jsp">The Bright Side Of Life</a></div>
+                                <div class="widget-post__views">125</div>
+                            </div>
+                        </li>
+                        <li class="widget-post carousel__item">
+                            <div class="widget-post__img">
+                                <a href="post-single_sidebar.jsp"><img src="assets/img/small-post4.jpg" alt=""></a>
+                            </div>
+                            <div class="widget-post__content">
+                                <div class="cat-title"><a href="">Fashion</a></div>
+                                <div class="h4 widget-post__title"><a href="post-single_sidebar.jsp">Philosophy As A Science</a></div>
+                                <div class="widget-post__views">987</div>
+                            </div>
+                        </li>
+                        <li class="widget-post carousel__item">
+                            <div class="widget-post__img">
+                                <a href="post-single_sidebar.jsp"><img src="assets/img/small-post5.jpg" alt=""></a>
+                            </div>
+                            <div class="widget-post__content">
+                                <div class="cat-title"><a href="">Photography</a></div>
+                                <div class="h4 widget-post__title"><a href="post-single_sidebar.jsp">Just One State</a></div>
+                                <div class="widget-post__views">743</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 owl-carousel__navigation">
+                        <h2 class="h4 owl-carousel__title widget-sidebar__title">Most popular</h2>
+                        <div class="owl-carousel__btns">
+                            <a class="btn owl-carousel__btn prev animate"><span class="icon flaticon-left-arrow-sign"></span></a>
+                            <a class="btn owl-carousel__btn next animate"><span class="icon flaticon-right-direction"></span></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="owl-carousel__wrap popular-posts-carousel">
+                    <ul class="owl-carousel item-3 custom-nav post-list list-unstyled">
+                        <li class="widget-post carousel__item">
+                            <div class="widget-post__img">
+                                <a href="post-single_sidebar.jsp"><img src="assets/img/small-post6.jpg" alt=""></a>
+                            </div>
+                            <div class="widget-post__content">
+                                <div class="cat-title"><a href="">Art &amp; Illustration</a></div>
+                                <div class="h4 widget-post__title"><a href="post-single_sidebar.jsp">When The Morning Dawns</a></div>
+                                <div class="widget-post__views">820</div>
+                            </div>
+                        </li>
+                        <li class="widget-post carousel__item">
+                            <div class="widget-post__img">
+                                <a href="post-single_sidebar.jsp"><img src="assets/img/small-post2.jpg" alt=""></a>
+                            </div>
+                            <div class="widget-post__content">
+                                <div class="cat-title"><a href="">Graphic Design</a></div>
+                                <div class="h4 widget-post__title"><a href="post-single_sidebar.jsp">Comment On The Importance</a></div>
+                                <div class="widget-post__views">404</div>
+                            </div>
+                        </li>
+                        <li class="widget-post carousel__item">
+                            <div class="widget-post__img">
+                                <a href="post-single_sidebar.jsp"><img src="assets/img/small-post3.jpg" alt=""></a>
+                            </div>
+                            <div class="widget-post__content">
+                                <div class="cat-title"><a href="">Furniture</a></div>
+                                <div class="h4 widget-post__title"><a href="post-single_sidebar.jsp">The Bright Side Of Life</a></div>
+                                <div class="widget-post__views">125</div>
+                            </div>
+                        </li>
+                        <li class="widget-post carousel__item">
+                            <div class="widget-post__img">
+                                <a href="post-single_sidebar.jsp"><img src="assets/img/small-post4.jpg" alt=""></a>
+                            </div>
+                            <div class="widget-post__content">
+                                <div class="cat-title"><a href="">Fashion</a></div>
+                                <div class="h4 widget-post__title"><a href="post-single_sidebar.jsp">Philosophy As A Science</a></div>
+                                <div class="widget-post__views">987</div>
+                            </div>
+                        </li>
+                        <li class="widget-post carousel__item">
+                            <div class="widget-post__img">
+                                <a href="post-single_sidebar.jsp"><img src="assets/img/small-post5.jpg" alt=""></a>
+                            </div>
+                            <div class="widget-post__content">
+                                <div class="cat-title"><a href="">Photography</a></div>
+                                <div class="h4 widget-post__title"><a href="post-single_sidebar.jsp">Just One State</a></div>
+                                <div class="widget-post__views">743</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 owl-carousel__navigation">
+                        <h2 class="h4 owl-carousel__title widget-sidebar__title">Most popular</h2>
+                        <div class="owl-carousel__btns">
+                            <a class="btn owl-carousel__btn prev animate"><span class="icon flaticon-left-arrow-sign"></span></a>
+                            <a class="btn owl-carousel__btn next animate"><span class="icon flaticon-right-direction"></span></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="owl-carousel__wrap popular-posts-carousel">
+                    <ul class="owl-carousel item-3 custom-nav post-list list-unstyled">
+                        <li class="widget-post carousel__item">
+                            <div class="widget-post__img">
+                                <a href="post-single_sidebar.jsp"><img src="assets/img/small-post6.jpg" alt=""></a>
+                            </div>
+                            <div class="widget-post__content">
+                                <div class="cat-title"><a href="">Art &amp; Illustration</a></div>
+                                <div class="h4 widget-post__title"><a href="post-single_sidebar.jsp">When The Morning Dawns</a></div>
+                                <div class="widget-post__views">820</div>
+                            </div>
+                        </li>
+                        <li class="widget-post carousel__item">
+                            <div class="widget-post__img">
+                                <a href="post-single_sidebar.jsp"><img src="assets/img/small-post2.jpg" alt=""></a>
+                            </div>
+                            <div class="widget-post__content">
+                                <div class="cat-title"><a href="">Graphic Design</a></div>
+                                <div class="h4 widget-post__title"><a href="post-single_sidebar.jsp">Comment On The Importance</a></div>
+                                <div class="widget-post__views">404</div>
+                            </div>
+                        </li>
+                        <li class="widget-post carousel__item">
+                            <div class="widget-post__img">
+                                <a href="post-single_sidebar.jsp"><img src="assets/img/small-post3.jpg" alt=""></a>
+                            </div>
+                            <div class="widget-post__content">
+                                <div class="cat-title"><a href="">Furniture</a></div>
+                                <div class="h4 widget-post__title"><a href="post-single_sidebar.jsp">The Bright Side Of Life</a></div>
+                                <div class="widget-post__views">125</div>
+                            </div>
+                        </li>
+                        <li class="widget-post carousel__item">
+                            <div class="widget-post__img">
+                                <a href="post-single_sidebar.jsp"><img src="assets/img/small-post4.jpg" alt=""></a>
+                            </div>
+                            <div class="widget-post__content">
+                                <div class="cat-title"><a href="">Fashion</a></div>
+                                <div class="h4 widget-post__title"><a href="post-single_sidebar.jsp">Philosophy As A Science</a></div>
+                                <div class="widget-post__views">987</div>
+                            </div>
+                        </li>
+                        <li class="widget-post carousel__item">
+                            <div class="widget-post__img">
+                                <a href="post-single_sidebar.jsp"><img src="assets/img/small-post5.jpg" alt=""></a>
+                            </div>
+                            <div class="widget-post__content">
+                                <div class="cat-title"><a href="">Photography</a></div>
+                                <div class="h4 widget-post__title"><a href="post-single_sidebar.jsp">Just One State</a></div>
+                                <div class="widget-post__views">743</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 owl-carousel__navigation">
+                        <h2 class="h4 owl-carousel__title widget-sidebar__title">Most popular</h2>
+                        <div class="owl-carousel__btns">
+                            <a class="btn owl-carousel__btn prev animate"><span class="icon flaticon-left-arrow-sign"></span></a>
+                            <a class="btn owl-carousel__btn next animate"><span class="icon flaticon-right-direction"></span></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="owl-carousel__wrap popular-posts-carousel">
+                    <ul class="owl-carousel item-3 custom-nav post-list list-unstyled">
+                        <li class="widget-post carousel__item">
+                            <div class="widget-post__img">
+                                <a href="post-single_sidebar.jsp"><img src="assets/img/small-post6.jpg" alt=""></a>
+                            </div>
+                            <div class="widget-post__content">
+                                <div class="cat-title"><a href="">Art &amp; Illustration</a></div>
+                                <div class="h4 widget-post__title"><a href="post-single_sidebar.jsp">When The Morning Dawns</a></div>
+                                <div class="widget-post__views">820</div>
+                            </div>
+                        </li>
+                        <li class="widget-post carousel__item">
+                            <div class="widget-post__img">
+                                <a href="post-single_sidebar.jsp"><img src="assets/img/small-post2.jpg" alt=""></a>
+                            </div>
+                            <div class="widget-post__content">
+                                <div class="cat-title"><a href="">Graphic Design</a></div>
+                                <div class="h4 widget-post__title"><a href="post-single_sidebar.jsp">Comment On The Importance</a></div>
+                                <div class="widget-post__views">404</div>
+                            </div>
+                        </li>
+                        <li class="widget-post carousel__item">
+                            <div class="widget-post__img">
+                                <a href="post-single_sidebar.jsp"><img src="assets/img/small-post3.jpg" alt=""></a>
+                            </div>
+                            <div class="widget-post__content">
+                                <div class="cat-title"><a href="">Furniture</a></div>
+                                <div class="h4 widget-post__title"><a href="post-single_sidebar.jsp">The Bright Side Of Life</a></div>
+                                <div class="widget-post__views">125</div>
+                            </div>
+                        </li>
+                        <li class="widget-post carousel__item">
+                            <div class="widget-post__img">
+                                <a href="post-single_sidebar.jsp"><img src="assets/img/small-post4.jpg" alt=""></a>
+                            </div>
+                            <div class="widget-post__content">
+                                <div class="cat-title"><a href="">Fashion</a></div>
+                                <div class="h4 widget-post__title"><a href="post-single_sidebar.jsp">Philosophy As A Science</a></div>
+                                <div class="widget-post__views">987</div>
+                            </div>
+                        </li>
+                        <li class="widget-post carousel__item">
+                            <div class="widget-post__img">
+                                <a href="post-single_sidebar.jsp"><img src="assets/img/small-post5.jpg" alt=""></a>
+                            </div>
+                            <div class="widget-post__content">
+                                <div class="cat-title"><a href="">Photography</a></div>
                                 <div class="h4 widget-post__title"><a href="post-single_sidebar.jsp">Just One State</a></div>
                                 <div class="widget-post__views">743</div>
                             </div>
@@ -225,201 +477,13 @@
         </section>
         <!-- Popular carousel section end -->
         <!-- News primary section start -->
-        <section class="section news-primary">
-            <div class="container">
-                <h2 class="screen-reader-text">News</h2>
-                <div class="news-masonry masonry-grid row columns-3">
-                    <div class="new-item col-md-6 col-lg-4">
-                        <div class="new-item__wrap">
-                            <div class="new-item__image">
-                                <a href="post-single_sidebar.jsp"><img src="assets/img/new6.jpg" alt=""></a>
-                            </div>
-                            <div class="new-item__info">
-                                <div class="h3 new-item__title"><a href="post-single_sidebar.jsp">Althusser Competing Interpellations</a></div>
-                                <ul class="new-item__meta d-flex align-items-center">
-                                    <li class="new-item__meta-author">
-                                        <a href="category-post.jsp"><span class="meta-author__img"><img src="assets/img/contain-18.jpg" alt=""></span>Mabelle Fox</a>
-                                    </li>
-                                    <li class="new-item__meta-cat"><a href="category-post.jsp">Art &amp; Illustration</a></li>
-                                    <li class="new-item__meta-time">2 hours ago</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="new-item col-md-6 col-lg-4">
-                        <div class="new-item__wrap">
-                            <div class="new-item__image">
-                                <a href="post-single_sidebar.jsp"><img src="assets/img/new7.jpg" alt=""></a>
-                            </div>
-                            <div class="new-item__info">
-                                <div class="h3 new-item__title"><a href="post-single_sidebar.jsp">Peace On Earth A Wonderful Wish But No Way</a></div>
-                                <ul class="new-item__meta d-flex align-items-center">
-                                    <li class="new-item__meta-author">
-                                        <a href="category-post.jsp"><span class="meta-author__img"><img src="assets/img/contain-16.jpg" alt=""></span>Raymond Manning</a>
-                                    </li>
-                                    <li class="new-item__meta-cat"><a href="category-post.jsp">Furniture</a></li>
-                                    <li class="new-item__meta-time">19:52am</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="new-item col-md-6 col-lg-4">
-                        <div class="new-item__wrap">
-                            <div class="new-item__image">
-                                <a href="post-single_sidebar.jsp"><img src="assets/img/new8.jpg" alt=""></a>
-                            </div>
-                            <div class="new-item__info">
-                                <div class="h3 new-item__title"><a href="post-single_sidebar.jsp">Natural Home Treatment For Cellulite</a></div>
-                                <ul class="new-item__meta d-flex align-items-center">
-                                    <li class="new-item__meta-author">
-                                        <a href="category-post.jsp"><span class="meta-author__img"><img src="assets/img/contain-14.jpg" alt=""></span>Gary Howell</a>
-                                    </li>
-                                    <li class="new-item__meta-cat"><a href="category-post.jsp">Fashion</a></li>
-                                    <li class="new-item__meta-time">02:43am</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="new-item col-md-6 col-lg-4">
-                        <div class="new-item__wrap">
-                            <div class="new-item__image">
-                                <a href="post-single_sidebar.jsp"><img src="assets/img/new9.jpg" alt=""></a>
-                            </div>
-                            <div class="new-item__info">
-                                <div class="h3 new-item__title"><a href="post-single_sidebar.jsp">Roar With Confidence</a></div>
-                                <ul class="new-item__meta d-flex align-items-center">
-                                    <li class="new-item__meta-author">
-                                        <a href="category-post.jsp"><span class="meta-author__img"><img src="assets/img/contain-12.jpg" alt=""></span>Jacob Cross</a>
-                                    </li>
-                                    <li class="new-item__meta-cat"><a href="category-post.jsp">Photography</a></li>
-                                    <li class="new-item__meta-time">08:49am</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="new-item col-md-6 col-lg-4">
-                        <div class="new-item__wrap">
-                            <div class="new-item__image">
-                                <a href="post-single_sidebar.jsp"><img src="assets/img/new11.jpg" alt=""></a>
-                            </div>
-                            <div class="new-item__info">
-                                <div class="h3 new-item__title"><a href="post-single_sidebar.jsp">Six Pack Abs The Big Picture</a></div>
-                                <ul class="new-item__meta d-flex align-items-center">
-                                    <li class="new-item__meta-author">
-                                        <a href="category-post.jsp"><span class="meta-author__img"><img src="assets/img/contain-21.jpg" alt=""></span>Jerome Paul</a>
-                                    </li>
-                                    <li class="new-item__meta-cat"><a href="category-post.jsp">Architecture</a></li>
-                                    <li class="new-item__meta-time">21:58pm</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="new-item col-md-6 col-lg-4">
-                        <div class="new-item__wrap">
-                            <div class="new-item__image">
-                                <a href="post-single_sidebar.jsp"><img src="assets/img/new10.jpg" alt=""></a>
-                            </div>
-                            <div class="new-item__info">
-                                <div class="h3 new-item__title"><a href="post-single_sidebar.jsp">Harness The Power Of Words In Your Life</a></div>
-                                <ul class="new-item__meta d-flex align-items-center">
-                                    <li class="new-item__meta-author">
-                                        <a href="category-post.jsp"><span class="meta-author__img"><img src="assets/img/contain-10.jpg" alt=""></span>Lina Horton</a>
-                                    </li>
-                                    <li class="new-item__meta-cat"><a href="category-post.jsp">Architecture</a></li>
-                                    <li class="new-item__meta-time">21:58pm</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="new-item col-md-6 col-lg-4 last">
-                        <div class="new-item__wrap">
-                            <div class="new-item__image">
-                                <a href="post-single_sidebar.jsp"><img src="assets/img/new12.jpg" alt=""></a>
-                            </div>
-                            <div class="new-item__info">
-                                <div class="h3 new-item__title"><a href="post-single_sidebar.jsp">When You Are Down And Out How Do You Get Up And Go Forward</a></div>
-                                <ul class="new-item__meta d-flex align-items-center">
-                                    <li class="new-item__meta-author">
-                                        <a href="category-post.jsp"><span class="meta-author__img"><img src="assets/img/contain-18.jpg" alt=""></span>Mabelle Fox</a>
-                                    </li>
-                                    <li class="new-item__meta-cat"><a href="category-post.jsp">Art &amp; Illustration</a></li>
-                                    <li class="new-item__meta-time">2 hours ago</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="new-item col-md-6 col-lg-4 last">
-                        <div class="new-item__wrap">
-                            <div class="new-item__image">
-                                <a href="post-single_sidebar.jsp"><img src="assets/img/new14.jpg" alt=""></a>
-                            </div>
-                            <div class="new-item__info">
-                                <div class="h3 new-item__title"><a href="post-single_sidebar.jsp">The Power Of Notes</a></div>
-                                <ul class="new-item__meta d-flex align-items-center">
-                                    <li class="new-item__meta-author">
-                                        <a href="category-post.jsp"><span class="meta-author__img"><img src="assets/img/contain-14.jpg" alt=""></span>Gary Howell</a>
-                                    </li>
-                                    <li class="new-item__meta-cat"><a href="category-post.jsp">Fashion</a></li>
-                                    <li class="new-item__meta-time">02:43am</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="new-item col-md-6 col-lg-4 last">
-                        <div class="new-item__wrap">
-                            <div class="new-item__image">
-                                <a href="post-single_sidebar.jsp"><img src="assets/img/new13.jpg" alt=""></a>
-                            </div>
-                            <div class="new-item__info">
-                                <div class="h3 new-item__title"><a href="post-single_sidebar.jsp">The A Z Of Motivation</a></div>
-                                <ul class="new-item__meta d-flex align-items-center">
-                                    <li class="new-item__meta-author">
-                                        <a href="category-post.jsp"><span class="meta-author__img"><img src="assets/img/contain-16.jpg" alt=""></span>Raymond Manning</a>
-                                    </li>
-                                    <li class="new-item__meta-cat"><a href="category-post.jsp">Furniture</a></li>
-                                    <li class="new-item__meta-time">19:52am</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+
         <!-- News primary section end -->
-
-
     </main>
     <!-- Page content section end -->
 
     <!-- Footer section start -->
-    <footer class="page-footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 col-lg-5 footer-widget footer__copy">
-                    <div class="footer__logo footer-widget">
-                        <a href="index.html" class="logo-title logo-title_reg animate">IndoorsCoder</a>
-                    </div>
-                </div>
-                <div class="col-lg-2 footer-widget footer__social-menu">
-                    <div class="widget-social">
-                        <div class="widget-title">We are social</div>
-                        <ul class="social-menu social-menu__left nav animate">
-                            <li><a href="#"><i class="mdi mdi-facebook"></i></a></li>
-                            <li><a href="#"><i class="mdi mdi-instagram"></i></a></li>
-                            <li><a href="#"><i class="mdi mdi-twitter"></i></a></li>
-                            <li><a href="#"><i class="mdi mdi-pinterest"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div class="text-center">
-                    <a href="http://www.beian.miit.gov.cn/">豫ICP备20013743号</a>
-            </div>
-        </div>
-
-    </footer>
-    <!-- Footer section end -->
+    <jsp:include page="footer.jsp"/>
 
     <!-- To top section start -->
     <div id="to-top" class="page-to-top animate text-center"><span class="icon icon-left flaticon-up-arrow-sign">Page top</span></div>

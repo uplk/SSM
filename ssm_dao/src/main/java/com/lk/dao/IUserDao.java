@@ -5,6 +5,7 @@ import com.lk.domain.Major;
 import com.lk.domain.User;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -35,4 +36,10 @@ public interface IUserDao {
 
     @Select("select * from user where uname=#{uname}")
     User findUser(String uname);
+
+    @Select("select uid from user where uname=#{uname}")
+    String findID(String uname);
+
+    @Update("update user set utl = #{utl} where uname=#{uname}")
+    void addUtl(User user);
 }

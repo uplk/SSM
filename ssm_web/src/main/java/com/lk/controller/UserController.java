@@ -20,8 +20,6 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.*;
 
 @Controller
@@ -40,7 +38,6 @@ public class UserController {
         List<User> userList = userService.findAll();
         mv.addObject("userList", userList);
         mv.setViewName("user-list");
-
         return mv;
     }
 
@@ -82,10 +79,10 @@ public class UserController {
     @RequestMapping(value="/getCode.do")
     @ResponseBody
     public String getCode(@RequestParam("utl") String utl) throws Exception{
-
         AliSmsBuilder aliSmsBuilder = new AliSmsBuilder();
         String code = CodeRandom.randomCode();
         setCode(code);
+        String returnCode = code;
         try {
             code = aliSmsBuilder.setPhoneNum(utl)    // 替换成自己的手机号
                     .setSignName("IndoorsyCode")  // 替换成自己的阿里云短信服务签名
@@ -107,7 +104,7 @@ public class UserController {
             // 短信发送异常提示
         }
 
-        return "OK";
+        return "ok";
 
     }
 
@@ -120,7 +117,10 @@ public class UserController {
         String trueCode = getCode();
         String json = "";
         Map<String, String> map = new HashMap<String, String>();
-        if(trueCode.equals(verifyCode)){
+        if(verifyCode.isEmpty()){
+            map.put("null", "还没有发送验证码");
+        }
+        else if(trueCode.equals(verifyCode)){
             map.put("utl", utl);
             User user = new User();
             user.setUid(UUID.randomUUID().toString().replace("-",""));
@@ -164,7 +164,7 @@ public class UserController {
         User user = userService.findUser(uname);
 
         mv.addObject("user", user);
-        mv.setViewName("user-detail");
+        mv.setViewName("user-msg");
         return mv;
     }
     @RequestMapping(value="/checkUname.do")
@@ -185,6 +185,38 @@ public class UserController {
             e.printStackTrace();
         }
         return json;
+    }
+
+    // 用户绑定手机号
+    @RequestMapping(value="/addUtl.do")
+    @ResponseBody
+    public String addUtl(HttpServletRequest request, @RequestParam("uname") String  uname, @RequestParam("utl") String utl, @RequestParam("code") String verifyCode) throws Exception{
+        String trueCode = getCode();
+        String json = "";
+        Map<String, String> map = new HashMap<String, String>();
+        if(trueCode.equals(verifyCode)){
+            User user = new User();
+            user = userService.findUser(uname);
+            user.setUtl(utl);
+            userService.addUtl(user);
+        }else{
+            map.put("error", "error");
+        }
+
+        ObjectMapper objectMapper = new ObjectMapper();
+        try{
+            json = objectMapper.writeValueAsString(map);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return json;
+
+    }
+    @RequestMapping(value="/logout.do")
+    @ResponseBody
+    public void logout(HttpServletRequest request) throws Exception{
+        HttpSession session = request.getSession(true);
+        session.removeAttribute("uname");
     }
 
     public String getCode() {

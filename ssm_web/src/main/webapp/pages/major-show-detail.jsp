@@ -27,8 +27,12 @@
     <link rel="stylesheet" href="../css/style.css" />
     <link rel="stylesheet" href="../css/editormd.css" />
     <link rel="shortcut icon" href="https://pandao.github.io/editor.md/favicon.ico" type="image/x-icon" />
+
+    <link rel=stylesheet href=${pageContext.request.contextPath}/css/bootstrap.min.css>
+
 </head>
 <body>
+<div class="wrapper">
 <jsp:include page="aside.jsp"/>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -59,8 +63,10 @@
     <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
-
-
+    <footer class="main-footer" >
+        <strong>Copyright &copy; IndoorsCoder <a href="http://www.beian.miit.gov.cn/">豫ICP备20013743号</a>.</strong>
+    </footer>
+</div>
 <!-- jQuery -->
 <script src="../plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
@@ -79,7 +85,7 @@
 <script src="../lib/sequence-diagram.min.js"></script>
 <script src="../lib/flowchart.min.js"></script>
 <script src="../lib/jquery.flowchart.min.js"></script>
-<script src="./editormd.js"></script>
+<%--<script src="../editormd.js"></script>--%>
 <script type="text/javascript">
     editormd.markdownToHTML("markDown-major");
     // <!--markdown-->

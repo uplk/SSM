@@ -14,6 +14,7 @@
         <module>ssm_utils</module>
         <module>ssm_service</module>
         <module>ssm_web</module>
+        <module>ssm_interceptor</module>
     </modules>
 
 
@@ -213,6 +214,30 @@
             <artifactId>jackson-annotations</artifactId>
             <version>2.9.8</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.4</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/commons-fileupload/commons-fileupload -->
+        <dependency>
+            <groupId>commons-fileupload</groupId>
+            <artifactId>commons-fileupload</artifactId>
+            <version>1.3.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.aliyun.oss</groupId>
+            <artifactId>aliyun-sdk-oss</artifactId>
+            <version>3.8.0</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.4</version>
+        </dependency>
+
 
     </dependencies>
 
@@ -236,11 +261,12 @@
                     <artifactId>tomcat7-maven-plugin</artifactId>
                     <version>2.2</version>
                     <configuration>
-                        <url>http://118.178.181.71:8080/manager/text</url>
+                        <port>8080</port>
                         <server>TomcatServer</server>
                         <username>uplk</username>
                         <password>aA13298133581.</password>
-                        <path>/</path>
+                        <path>/ssm_web</path>
+                        <url>http://127.0.0.1:8080/manager/text</url>
                         <contextReloadable>true</contextReloadable>
                     </configuration>
                 </plugin>

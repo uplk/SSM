@@ -1,2 +1,11 @@
-com\lk\domain\User.class
+com\lk\domain\ULove.class
+com\lk\domain\VideoContent.class
 com\lk\domain\Major.class
+com\lk\domain\Video.class
+com\lk\domain\PictureSort.class
+com\lk\domain\Music.class
+com\lk\domain\User.class
+com\lk\domain\Picture.class
+com\lk\domain\VideoLove.class
+com\lk\domain\PictureContent.class
+com\lk\domain\PictureLove.class

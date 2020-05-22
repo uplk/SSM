@@ -9,7 +9,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon" />
-	<title>404 Page - Yomac</title>
+	<title>404 Page - IndoorsCoder</title>
 
 	<!-- Fonts -->
 	<link rel="stylesheet" href="assets/fonts/Quattrocento/Quattrocento.css">

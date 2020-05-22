@@ -1,4 +1,10 @@
 F:\Study\IDEA\MavenProjects\gitProject\ssm_service\src\main\java\com\lk\service\impl\MajorServiceImpl.java
 F:\Study\IDEA\MavenProjects\gitProject\ssm_service\src\main\java\com\lk\service\impl\UserServiceImpl.java
+F:\Study\IDEA\MavenProjects\gitProject\ssm_service\src\main\java\com\lk\service\impl\VideoServiceImpl.java
+F:\Study\IDEA\MavenProjects\gitProject\ssm_service\src\main\java\com\lk\service\impl\MusicServiceImpl.java
 F:\Study\IDEA\MavenProjects\gitProject\ssm_service\src\main\java\com\lk\service\IMajorService.java
+F:\Study\IDEA\MavenProjects\gitProject\ssm_service\src\main\java\com\lk\service\IMusicService.java
+F:\Study\IDEA\MavenProjects\gitProject\ssm_service\src\main\java\com\lk\service\IVideoService.java
+F:\Study\IDEA\MavenProjects\gitProject\ssm_service\src\main\java\com\lk\service\impl\PictureServiceImpl.java
+F:\Study\IDEA\MavenProjects\gitProject\ssm_service\src\main\java\com\lk\service\IPictureService.java
 F:\Study\IDEA\MavenProjects\gitProject\ssm_service\src\main\java\com\lk\service\IUserService.java
